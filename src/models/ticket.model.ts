@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import modelConstants from "../constants/schema_names";
+import modelConstants from "../constants/collectionNames";
 import { Ticket } from "../interfaces/ticket.interface";
 
 //* Basic schema for ticket

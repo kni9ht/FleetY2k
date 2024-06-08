@@ -1,13 +1,22 @@
 import { RequestHandler } from "express";
 import { StatusCodes } from "http-status-codes";
 import logger from "../../utils/logger";
+import { enrollNewNodeService, isNodeAvailableService } from "../../services/osquery.service";
+import generateToken from "../../utils/generate_token";
+import newNode from "../../interfaces/osquery.interface";
 
 const log: RequestHandler = async (req, res) => {
   try {
-    if(req.body.log_type=="result")
-    {
-      console.log(req.body) 
-    }
+    isNodeAvailableService({node_id:req.body.node_key}).then((node:newNode | null) => {
+      if(node && req.body.log_type=="result")
+      {
+        logger.info("Got data for node: " + node.os_name + " " + node.host_identifier) 
+      }
+    })
+    // if(req.body.log_type=="result")
+    // {
+    //   console.log(req.body)
+    // }
     return res
       .status(StatusCodes.OK)
       .send();
@@ -25,7 +34,7 @@ const config: RequestHandler = async (req, res) => {
         "schedule": {
             "bpf_processes": {
                 "query": "SELECT * FROM bpf_process_events;",
-                "interval": 15
+                "interval": 2
             }
         }
       }
@@ -43,10 +52,13 @@ const config: RequestHandler = async (req, res) => {
 
 const enroll: RequestHandler = async (req, res) => {
 try {
-    let enroll = {
-      "node_key": "yoegshjadhav78728162781",
-      "node_invalid": true
-    }
+  let node_id = generateToken(32)
+  enrollNewNodeService(req.body.host_identifier, req.body.host_details.os_version.name, node_id)
+  let enroll = {
+    "node_key": node_id,
+    "node_invalid": true
+  }
+    logger.info("New Node enrolled");
     return res
     .status(StatusCodes.OK)
     .send(enroll);

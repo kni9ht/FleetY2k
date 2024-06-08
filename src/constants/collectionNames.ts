@@ -1,9 +1,10 @@
 //* Database References
 //* For identifying collection names across the project
 
-const modelConstants = {
+const collectionNames = {
   account: "Account",
   ticket: "Ticket",
+  osquery: "OSquery",
 };
 
-export default modelConstants;
+export default collectionNames;
