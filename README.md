@@ -1,12 +1,12 @@
 # FleetY2K
 
-to run server with dev settings use `npm run dev`
+to run server with dev settings use `yarn dev`
 
-build server with `npm run build`
+build server with `yarn build`
 
-start server with `npm start`
+start server with `yarn start`
 
-start test with `npm run test`
+start test with `yarn test`
 
 <!-- # Notes: -->
 
