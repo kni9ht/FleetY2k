@@ -13,4 +13,4 @@ start test with `yarn test`
 ## Tips to setup environment
 
 1. Create DB
-   > docker run --name mongodb-server -d -p 27017:27017 -e MONGO_INITDB_DATABASE=<DB name> -e MONGO_INITDB_ROOT_USERNAME=<DB user> -e MONGO_INITDB_ROOT_PASSWORD=<DB user password> mongo
+   > docker run --name mongodb-server -d -p 27017:27017 -e MONGO_INITDB_DATABASE=<DB name> mongo
