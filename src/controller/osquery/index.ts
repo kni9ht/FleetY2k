@@ -15,7 +15,7 @@ const log: RequestHandler = async (req, res) => {
     logger.error(err);
     return res
       .status(StatusCodes.BAD_REQUEST)
-      .json({ msg: "Login error", err: err.message });
+      .json({ msg: "Error logging the data", err: err.message });
   }
 };
 
@@ -25,7 +25,7 @@ const config: RequestHandler = async (req, res) => {
         "schedule": {
             "bpf_processes": {
                 "query": "SELECT * FROM bpf_process_events;",
-                "interval": 2
+                "interval": 15
             }
         }
       }
@@ -37,7 +37,7 @@ const config: RequestHandler = async (req, res) => {
       logger.error(err);
       return res
         .status(StatusCodes.BAD_REQUEST)
-        .json({ msg: "Login error", err: err.message });
+        .json({ msg: "Error sending config", err: err.message });
     }
 };
 
@@ -54,7 +54,7 @@ try {
     logger.error(err);
     return res
     .status(StatusCodes.BAD_REQUEST)
-    .json({ msg: "Login error", err: err.message });
+    .json({ msg: "Error while enrolling", err: err.message });
 }
 };
 

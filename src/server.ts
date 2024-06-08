@@ -6,12 +6,17 @@ import { StatusCodes } from "http-status-codes";
 import connectDB from "./utils/connect";
 import logger from "./utils/logger";
 import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
 
 const app = express();
 app.use(cookieParser());
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json({limit: '50mb'}) );
+app.use(bodyParser.urlencoded({
+  limit: '50mb',
+  extended: true,
+  parameterLimit:50000
+}));
 
 // Routes
 app.get("/", (req, res) => {
