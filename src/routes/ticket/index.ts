@@ -4,7 +4,7 @@ import {
   deleteOneTicket,
   getAllTicket,
   getOneTicket,
-} from "../../controller/ticket";
+} from "../../controller/ticket.controller";
 import { verifyBodyRequest } from "../../middlewares/verifyRequest";
 import { verifyToken } from "../../middlewares/auth.jwt";
 

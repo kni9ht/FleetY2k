@@ -1,5 +1,5 @@
 import { Router } from "express";
-import  osquery from "../../controller/osquery";
+import  osquery from "../../controller/osquery.controller";
 import { verifyBodyRequest } from "../../middlewares/verifyRequest";
 import { verifyToken } from "../../middlewares/auth.jwt";
 

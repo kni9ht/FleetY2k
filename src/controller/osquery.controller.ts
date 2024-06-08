@@ -1,9 +1,9 @@
 import { RequestHandler } from "express";
 import { StatusCodes } from "http-status-codes";
-import logger from "../../utils/logger";
-import { enrollNewNodeService, isNodeAvailableService } from "../../services/osquery.service";
-import generateToken from "../../utils/generate_token";
-import newNode from "../../interfaces/osquery.interface";
+import logger from "../utils/logger";
+import { enrollNewNodeService, isNodeAvailableService } from "../services/osquery.service";
+import generateToken from "../utils/generate_token";
+import newNode from "../interfaces/osquery.interface";
 
 const log: RequestHandler = async (req, res) => {
   try {

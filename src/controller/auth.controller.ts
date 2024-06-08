@@ -5,10 +5,10 @@ import {
   createAccount,
   findAccount,
   validatePassword,
-} from "../../services/account.service";
+} from "../services/account.service";
 import { omit } from "lodash";
-import logger from "../../utils/logger";
-import authConfig from "../../config/auth.config";
+import logger from "../utils/logger";
+import authConfig from "../config/auth.config";
 
 //* Basic Authentication with JWT
 

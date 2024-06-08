@@ -1,14 +1,14 @@
 import { RequestHandler } from "express";
-import logger from "../../utils/logger";
+import logger from "../utils/logger";
 import {
   createOneTicketService,
   deleteOneTicketService,
   findAllTicketService,
   findOneTicketService,
   sendEmailService,
-} from "../../services/ticket.service";
+} from "../services/ticket.service";
 import { StatusCodes } from "http-status-codes";
-import generateToken from "../../utils/generate_token";
+import generateToken from "../utils/generate_token";
 
 //* Basic document creation and checking with MongoDB
 
